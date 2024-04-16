@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details {
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .product-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        .back-link {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .footer p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ada2a2, #b8c2cd);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-details">
+            <h1 class="product-title">{{ product.name }} Details</h1>
+            <div class="product-info">
+                <p><strong>Price:</strong> ${{ product.price }}</p>
+                <p><strong>Category:</strong> {{ product.category }}</p>
+                <p><strong>Description:</strong> {{ product.description }}</p>
+            </div>
+            <a href="/products" class="back-link">Back to Products</a>
+        </div>
+    </div>
+
+</body>
+</html>

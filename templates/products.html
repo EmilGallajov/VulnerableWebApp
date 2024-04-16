@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-card {
+            width: 250px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-card p {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #888;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .footer p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+    .primary-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #ff6600;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        font-size: 14px;
+    }
+
+    .primary-btn:hover {
+        background-color: #e64d00;
+    }
+
+    </style>
+</head>
+<div class="container">
+    <div class="header">
+        <a href="{{ url_for('back_home') }}" class="primary-btn" style="position: absolute; top: 20px; left: 20px;">Back to Home</a>
+    </div>
+</div>
+
+
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to Our Online Store</h1>
+            <p>Explore our latest products</p>
+            <!-- <a href="{{ url_for('back_home') }}" class="primary-btn">Back to Home</a> -->
+
+        <div class="product-container">
+            {% for product in products %}
+            <div class="product-card">
+                <!-- <img src="{{ product.image_url }}" alt="{{ product.name }}"> -->
+                <h3>{{ product.name }}</h3>
+                <p>Price: ${{ product.price }}</p>
+                <p>Category: {{ product.category }}</p>
+                <a href="{{ url_for('product_detail', id=product.id) }}" class="primary-btn">View Details</a>
+                <a href="/product?filename={{ product.filename }}" class="primary-btn">Download Product Info{{ product.filename }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Online Store. All rights reserved.</p>
+    </div>
+</body>
+</html>
+
